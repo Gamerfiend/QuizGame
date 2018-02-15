@@ -23,4 +23,42 @@ class Question
         $this->_category = $category;
         $this->_correctIndex = $correctIndex;
     }
+
+    /**
+     * @return String
+     */
+    public function getQuestion()
+    {
+        return $this->_question;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getPossibleAnswers()
+    {
+        return $this->_possibleAnswers;
+    }
+
+    /**
+     * @return String
+     */
+    public function getCategory()
+    {
+        return $this->_category;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCorrectIndex()
+    {
+        return $this->_correctIndex;
+    }
+
+    public function getCorrectAnswer()
+    {
+        return $this->_possibleAnswers[$this->_correctIndex - 1];
+    }
 }
