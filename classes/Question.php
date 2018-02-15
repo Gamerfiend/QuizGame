@@ -25,7 +25,8 @@ class Question
     }
 
     /**
-     * @return String
+     * Getter for question
+     * @return String Main question
      */
     public function getQuestion()
     {
@@ -34,7 +35,8 @@ class Question
 
 
     /**
-     * @return mixed
+     * Getter for the possible answers array
+     * @return Array<String> an array of the questions
      */
     public function getPossibleAnswers()
     {
@@ -42,7 +44,8 @@ class Question
     }
 
     /**
-     * @return String
+     * Getter for the catergory id
+     * @return String catergory this question belongs to
      */
     public function getCategory()
     {
@@ -50,13 +53,18 @@ class Question
     }
 
     /**
-     * @return int
+     * Getter for the correct answer index, used for getting the answer from the answers array
+     * @return int index of correct answer
      */
     public function getCorrectIndex()
     {
         return $this->_correctIndex;
     }
 
+    /**
+     * Getter for the correct answer, used to compare against user answer
+     * @return String Correct answer from array
+     */
     public function getCorrectAnswer()
     {
         return $this->_possibleAnswers[$this->_correctIndex - 1];
