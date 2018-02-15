@@ -26,6 +26,4 @@ $f3->route('GET /', function() {
 $f3->set('DEBUG', 3);
 $f3->run();
 
-
-
 ?>
