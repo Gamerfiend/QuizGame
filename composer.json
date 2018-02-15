@@ -1,0 +1,16 @@
+{
+  "name" : "328/QuizGame",
+  "authors" : [
+    {
+      "name" : "Tyler Bezera",
+      "email" : "tbezera2@mail.greenriver.edu"
+    },
+    {
+      "name" : "Brett Yeager",
+      "email" : "byeager@mail.greenriver.edu"
+    }
+  ],
+  "require" : {
+    "bcosca/fatfree-core" : "dev-master"
+  }
+}
