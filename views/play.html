@@ -8,11 +8,44 @@
     <link rel="stylesheet" href="./styles/bootstrap/bootstrap-reboot.css">
 </head>
 <body>
-
 <!-- Bootstrap Card for question, pull question from api here -->
+<div class="container">
+    <div class="card">
+        <div class="card-header" id="category"></div>
+        <div class="card-body" id="quiz">
+            <p id="question"></p>
+            <ul class="list-group">
+                <li id='answer1' class="list-group-item"></li>
+                <li id='answer2' class="list-group-item"></li>
+                <li id='answer3' class="list-group-item"></li>
+                <li id='answer4' class="list-group-item"></li>
+            </ul>
+        </div>
+        <div class="card-footer" id="notify"></div>
+    </div>
+</div>
 
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="./views/bootstrapJS/bootstrap.js"></script>
+<script>
+
+    $.post('328/QuizGame/models/api-functions.php', {action: 'question'}, function( data ) {
+
+        var index = data.indexOf(']');
+        data = data.substring(1,index);
+        console.log(data);
+        var obj = JSON.parse(data);
+        console.log(obj);
+        $('#answer1').html(obj.option1);
+        $('#answer2').html(obj.option2);
+        $('#answer3').html(obj.option3);
+        $('#answer4').html(obj.option4);
+        $('#question').html(obj.question);
+        $('#category').html(obj.category.name);
+
+        //$('#quiz').html(data);
+    });
+</script>
 </body>
 </html>
