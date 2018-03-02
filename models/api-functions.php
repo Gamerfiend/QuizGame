@@ -13,8 +13,10 @@ if(isset($_POST['action']))
 
 function getQuestion()
 {
+    $rand = rand(1, 10000);
+
     $client = new GuzzleHttp\Client();
-    $res = $client->request('GET', 'https://qriusity.com/v1/questions?page=2&limit=1');
+    $res = $client->request('GET', 'https://qriusity.com/v1/questions?page='. $rand .'&limit=1');
 
     //
 //    echo $res->getStatusCode();
