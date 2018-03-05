@@ -13,14 +13,16 @@
 <div class="container card-size">
     <div class="card mt-5 text-center">
         <div class="card-header" id="category"></div>
-        <div class="card-body text-center" id="quiz">
-            <p id="question" class=""></p>
-            <ul class="list-group">
-                <li id='answer1' name="1" class="list-group-item"></li>
-                <li id='answer2' name="2" class="list-group-item"></li>
-                <li id='answer3' name="3" class="list-group-item"></li>
-                <li id='answer4' name="4" class="list-group-item"></li>
-            </ul>
+        <div class="card-body text-center p-3" id="quiz">
+            <p id="question" class="mt-3"></p>
+            <form action="">
+                <ul class="list-group">
+                    <li class="list-group-item optionListHolder"><input id='answer1' class="optionButton btn btn-light" type="submit" value=""></li>
+                    <li class="list-group-item optionListHolder"><input id='answer2' class="optionButton btn btn-light" type="submit" value=""></li>
+                    <li class="list-group-item optionListHolder"><input id='answer3' class="optionButton btn btn-light" type="submit" value=""></li>
+                    <li class="list-group-item optionListHolder"><input id='answer4' class="optionButton btn btn-light" type="submit" value=""></li>
+                </ul>
+            </form>
         </div>
         <div class="card-footer" id="notify"></div>
     </div>
@@ -38,10 +40,10 @@
         console.log(data);
         var obj = JSON.parse(data);
         console.log(obj);
-        $('#answer1').html(obj.option1);
-        $('#answer2').html(obj.option2);
-        $('#answer3').html(obj.option3);
-        $('#answer4').html(obj.option4);
+        $('#answer1').val(obj.option1);
+        $('#answer2').val(obj.option2);
+        $('#answer3').val(obj.option3);
+        $('#answer4').val(obj.option4);
         $('#question').html(obj.question);
         $('#category').html(obj.category.name);
 

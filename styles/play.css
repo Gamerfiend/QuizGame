@@ -1,4 +1,13 @@
+.optionButton{
+    width: 100%;
+    height: 3em;
+
+}
 .card-size
 {
     width: 30em;
+}
+.optionListHolder{
+    border: none;
+    padding: 0.2em;
 }
