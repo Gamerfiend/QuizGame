@@ -11,15 +11,15 @@
 <body>
 <!-- Bootstrap Card for question, pull question from api here -->
 <div class="container card-size">
-    <div class="card">
+    <div class="card mt-5 text-center">
         <div class="card-header" id="category"></div>
         <div class="card-body text-center" id="quiz">
             <p id="question" class=""></p>
             <ul class="list-group">
-                <li id='answer1' class="list-group-item"></li>
-                <li id='answer2' class="list-group-item"></li>
-                <li id='answer3' class="list-group-item"></li>
-                <li id='answer4' class="list-group-item"></li>
+                <li id='answer1' name="1" class="list-group-item"></li>
+                <li id='answer2' name="2" class="list-group-item"></li>
+                <li id='answer3' name="3" class="list-group-item"></li>
+                <li id='answer4' name="4" class="list-group-item"></li>
             </ul>
         </div>
         <div class="card-footer" id="notify"></div>
@@ -45,7 +45,7 @@
         $('#question').html(obj.question);
         $('#category').html(obj.category.name);
 
-        //$('#quiz').html(data);
+        <!-- Route to same page, if answer is correct new question else end game -->
     });
 </script>
 </body>
