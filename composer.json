@@ -13,5 +13,8 @@
   "require" : {
     "bcosca/fatfree-core" : "dev-master",
     "guzzlehttp/guzzle" : "6.3.0"
+  },
+  "autoload": {
+    "classmap":["classes/Question.php"]
   }
 }

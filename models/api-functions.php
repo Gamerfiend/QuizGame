@@ -1,5 +1,5 @@
 <?php
-
+getQuestion();
 /**
  *
  */
@@ -13,15 +13,15 @@ if(isset($_POST['action']))
 
 function getQuestion()
 {
+
     $rand = rand(1, 10000);
 
     $client = new GuzzleHttp\Client();
     $res = $client->request('GET', 'https://qriusity.com/v1/questions?page='. $rand .'&limit=1');
+    $jsonData = json_decode($res->getBody(), true)[0];
 
-    //
-//    echo $res->getStatusCode();
-//
-//    echo $res->getHeader('content-type');
-    echo $res->getBody();
+    $question = new Question($jsonData["question"], null, $jsonData["category"]["name"], $jsonData["answers"]);
+
+    $_SESSION["correctAnswer"] = $question;
 }
 
