@@ -1,4 +1,5 @@
 <?php
+require 'ICorrectIndex.php';
 
 class Question implements ICorrectIndex
 {
