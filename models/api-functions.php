@@ -1,8 +1,5 @@
 <?php
-getQuestion();
-/**
- *
- */
+require_once '../vendor/autoload.php';
 if(isset($_POST['action']))
 {
     if ($_POST['action'] == 'question')
@@ -23,5 +20,7 @@ function getQuestion()
     $question = new Question($jsonData["question"], null, $jsonData["category"]["name"], $jsonData["answers"]);
 
     $_SESSION["correctAnswer"] = $question;
+
+    echo $res->getBody();
 }
 

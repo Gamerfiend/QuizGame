@@ -12,7 +12,6 @@ ini_set('display_errors', TRUE);
 
 //require the autoload file
 require_once('vendor/autoload.php');
-require_once 'models/api-functions.php';
 
 //create an instance of the Base class
 $f3 = Base::instance();

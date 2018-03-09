@@ -1,9 +1,8 @@
 
-$.post('/328/QuizGame/models/api-functions.php', {action: 'question'}, function( data ) {
+$.post('models/api-functions.php', {action: 'question'}, function( data ) {
 
     var index = data.indexOf(']');
     data = data.substring(1,index);
-    console.log(data);
     var obj = JSON.parse(data);
     console.log(obj);
     $('#answer1').val(obj.option1);
