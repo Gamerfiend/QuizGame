@@ -1,5 +1,5 @@
 
-$.post('328/QuizGame/models/api-functions.php', {action: 'question'}, function( data ) {
+$.post('/328/QuizGame/models/api-functions.php', {action: 'question'}, function( data ) {
 
     var index = data.indexOf(']');
     data = data.substring(1,index);
