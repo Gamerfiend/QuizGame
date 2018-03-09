@@ -1,7 +1,7 @@
 <?php
 require 'ICorrectIndex.php';
 
-class Question implements ICorrectIndex
+class Question
 {
     private $_question;
     private $_possibleAnswers;

@@ -10,8 +10,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 
+
 //require the autoload file
 require_once('vendor/autoload.php');
+session_start();
 
 //create an instance of the Base class
 $f3 = Base::instance();
@@ -23,9 +25,27 @@ $f3->route('GET /', function() {
 });
 
 $f3->route('GET /play', function() {
+    echo Template::instance()->render('views/play.html');
+});
+$f3->route('POST /play', function() {
     //check if post has been submitted
+    echo print_r($_POST);
+    $givenAnswer = 0;
+    for($i=1; $i<=4; $i++){
 
-    //if it has check submitted answer, against correct answer in session
+        if(isset($_POST[$i])){
+            $givenAnswer = $i;
+
+            //check submitted answer, against correct answer in session
+            if($_SESSION["correctAnswer"]->getCorrectIndex()==$givenAnswer){
+                echo "correct!";
+            }else{
+                echo "incorrect!";
+            }
+
+        }
+    }
+
 
     //if correct increment correctAnswered and reload page with new question
 
