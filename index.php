@@ -23,6 +23,13 @@ $f3->route('GET /', function() {
 });
 
 $f3->route('GET /play', function() {
+    //check if post has been submitted
+
+    //if it has check submitted answer, against correct answer in session
+
+    //if correct increment correctAnswered and reload page with new question
+
+    //else results page, which will submit to database
     echo Template::instance()->render('views/play.html');
 });
 
