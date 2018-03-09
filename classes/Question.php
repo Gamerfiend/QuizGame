@@ -1,6 +1,6 @@
 <?php
 
-class Question
+class Question implements ICorrectIndex
 {
     private $_question;
     private $_possibleAnswers;
