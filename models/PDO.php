@@ -12,8 +12,8 @@ PRIMARY KEY(entryid)
  */
 
 
-require "/config.php";
-
+require "../../../quizgameconfig.php";
+$dbh;
 
 try{
     //Instantiate a database object
@@ -30,13 +30,13 @@ catch(PDOException $e){
  * Insert a member's data into database
  * @param Member $member The member information to add to the database
  */
-function submitHighscore($name, $score, $dbh){
+function submitHighscore($name, $score){
 
 
     $sql = "INSERT INTO Highscores(name, score)
         VALUES  (:name, :score)";
 
-
+    global $dbh;
     $statement = $dbh->prepare($sql);
 
     $statement->bindParam(':name', $name, PDO::PARAM_STR);

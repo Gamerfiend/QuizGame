@@ -15,6 +15,8 @@ ini_set('display_errors', TRUE);
 require_once('vendor/autoload.php');
 session_start();
 
+require "models/PDO.php";
+
 //create an instance of the Base class
 $f3 = Base::instance();
 
@@ -30,7 +32,8 @@ $f3->route('GET /play', function() {
 $f3->route('POST /play', function() {
     //check if post has been submitted
     echo print_r($_POST);
-    $givenAnswer = 0;
+    $correct = false;
+
     for($i=1; $i<=4; $i++){
 
         if(isset($_POST[$i])){
@@ -38,9 +41,11 @@ $f3->route('POST /play', function() {
 
             //check submitted answer, against correct answer in session
             if($_SESSION["correctAnswer"]->getCorrectIndex()==$givenAnswer){
-                echo "correct!";
+                //Correct
+                $correct = true;
             }else{
-                echo "incorrect!";
+                //Incorrect
+                $correct = false;
             }
 
         }
@@ -48,9 +53,21 @@ $f3->route('POST /play', function() {
 
 
     //if correct increment correctAnswered and reload page with new question
+    if($correct){
+        $_SESSION["highscore"] += 1;
+        echo Template::instance()->render('views/play.html');
+    }else{
+
+        //Save high score
+        submitHighscore("name", $_SESSION["highscore"]);
+        $_SESSION["highscore"] = 0;
+        echo Template::instance()->render('views/home.html');
+    }
+
+    echo "score: " . $_SESSION["highscore"];
 
     //else results page, which will submit to database
-    echo Template::instance()->render('views/play.html');
+
 });
 
 //run fat free
