@@ -21,12 +21,16 @@ require "models/PDO.php";
 $f3 = Base::instance();
 
 //define a default route
-$f3->route('GET /', function() {
-    $view = new View;
-    echo $view->render('views/home.html');
+$f3->route('GET /', function($f3) {
+    $highscores = getHighscores();
+
+    $f3->set("highscores", $highscores);
+    print_r($highscores);
+    echo Template::instance()->render('views/home.html');
 });
 
-$f3->route('GET /play', function() {
+$f3->route('GET /play', function($f3) {
+
     echo Template::instance()->render('views/play.html');
 });
 $f3->route('POST /play', function() {

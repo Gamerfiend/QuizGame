@@ -23,12 +23,12 @@
                     <th>Nickname:</th>
                     <th>Highscore:</th>
                 </tr>
-                <tr>
-                    <repeat group="{{ @scores }}" value="{{ @score }}">
-                        <td>{{ @score['name'] }}</td>
-                        <td>{{ @score['score']}}</td>
+                    <repeat group="{{ @highscores }}" value="{{ @score }}">
+                        <tr>
+                            <td>{{ @score['name'] }}</td>
+                            <td>{{ @score['score']}}</td>
+                        </tr>
                     </repeat>
-                </tr>
             </table>
         </div>
     </div>

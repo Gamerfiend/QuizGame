@@ -43,6 +43,19 @@ function submitHighscore($name, $score){
     $statement->bindParam(':score', $score, PDO::PARAM_STR);
 
     $statement->execute();
+}
 
+function getHighscores()
+{
+    $sql = "SELECT * FROM Highscores";
 
+    global $dbh;
+
+    $statement = $dbh->prepare($sql);
+
+    $result = $statement->execute();
+
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
 }
