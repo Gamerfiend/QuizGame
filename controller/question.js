@@ -2,6 +2,7 @@
 $.post('models/api-functions.php', {action: 'question'}, function( data ) {
 
     var index = data.indexOf(']');
+    console.log(data);
     data = data.substring(1,index);
     var obj = JSON.parse(data);
     console.log(obj);

@@ -9,11 +9,30 @@
 
 </head>
 <body>
-<div id="Wrapper" class="text-center">
-    <h1 class="text-info text-center mt-5">Quiz Game</h1>
-    <a href="./play" class="btn btn-primary btn-lg mt-5">Play</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <div id="Wrapper" class="text-center">
+            <h1 class="text-info text-center mt-5">Quiz Game</h1>
+            <a href="./play" class="btn btn-primary btn-lg mt-5">Play</a>
+        </div>
+    </div>
+    <div class="row mt-5 justify-content-center">
+        <div id="highscores" class="">
+            <table class="table-striped">
+                <tr>
+                    <th>Nickname:</th>
+                    <th>Highscore:</th>
+                </tr>
+                <tr>
+                    <repeat group="{{ @scores }}" value="{{ @score }}">
+                        <td>{{ @score['name'] }}</td>
+                        <td>{{ @score['score']}}</td>
+                    </repeat>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
-
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="./views/bootstrapJS/bootstrap.js"></script>
