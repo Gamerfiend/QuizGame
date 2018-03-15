@@ -30,8 +30,8 @@ $f3->route('GET /', function($f3) {
     echo Template::instance()->render('views/home.html');
 });
 
-$f3->route('GET /play', function($f3) {
-
+$f3->route('GET /play', function() {
+    $_SESSION['nickname'] = $_GET['nickname'];
     echo Template::instance()->render('views/play.html');
 });
 $f3->route('POST /play', function($f3) {
@@ -64,7 +64,7 @@ $f3->route('POST /play', function($f3) {
     }else{
 
         //Save high score
-        submitHighscore("name", $_SESSION["highscore"]);
+        submitHighscore($_SESSION['nickname'], $_SESSION["highscore"]);
         $_SESSION["highscore"] = 0;
         $f3->reroute("/");
     }
