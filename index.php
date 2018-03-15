@@ -36,7 +36,6 @@ $f3->route('GET /play', function($f3) {
 });
 $f3->route('POST /play', function($f3) {
     //check if post has been submitted
-    echo print_r($_POST);
     $correct = false;
 
     for($i=1; $i<=4; $i++){
@@ -67,7 +66,7 @@ $f3->route('POST /play', function($f3) {
         //Save high score
         submitHighscore("name", $_SESSION["highscore"]);
         $_SESSION["highscore"] = 0;
-        echo Template::instance()->render('views/home.html');
+        $f3->reroute("/");
     }
 });
 
