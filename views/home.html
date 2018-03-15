@@ -15,6 +15,9 @@ Package: views
     <link rel="stylesheet" href="./styles/home.css">
 </head>
 <body>
+<check if="{{ @answer!=null }}">
+    <script>setTimeout(function(){alert("Game over. The answer was  {{ @answer }}")}, 600);</script>
+</check>
 <div class="jumbotron">
     <h1 class="display-4">Quiz Game</h1>
     <p class="lead">You have one chance to play the game, the first question you get wrong, the game ends and submits your highscore.</p>
@@ -22,7 +25,7 @@ Package: views
     <form action="./play" method="GET">
         <div class="form-group col-3">
             <label for="nickname">Nickname: &nbsp;</label>
-            <input id="nickname" name="nickname" type="text" class="form-control">
+            <input id="nickname" name="nickname" type="text" class="form-control" value="{{ @nickname }}">
         </div>
         <p class="lead">
             <input value="Play" type="submit" class="btn btn-primary btn-lg mt-5">

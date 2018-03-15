@@ -23,12 +23,21 @@ $f3 = Base::instance();
 
 //define a default route
 $f3->route('GET /', function($f3) {
+
+    if(isset($_SESSION['correctAnswer'])){
+        $f3->set("answer", $_SESSION['correctAnswer']);
+    }
     $highscores = getHighscores();
 
     $f3->set("highscores", $highscores);
 
+    $f3->set("nickname", $_SESSION['nickname']);
+
+    session_unset();
+
     echo Template::instance()->render('views/home.html');
 });
+
 
 $f3->route('GET /play', function() {
     $_SESSION['nickname'] = $_GET['nickname'];
@@ -66,6 +75,7 @@ $f3->route('POST /play', function($f3) {
         //Save high score
         submitHighscore($_SESSION['nickname'], $_SESSION["highscore"]);
         $_SESSION["highscore"] = 0;
+        $_SESSION["correctAnswer"] = $_SESSION["question"]->getCorrectAnswer();
         $f3->reroute("/");
     }
 });
