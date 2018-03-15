@@ -1,6 +1,24 @@
 <?php
 require 'ICorrectIndex.php';
+/**
+ * Contains question class object.
+ *
+ * @package classes
+ * @author Tyler Bezera <tbezera2@mail.greenriver.edu>
+ * @author Brett Yeager <byeager@mail.greenriver.edu>
+ */
 
+/**
+ * Class Question
+ *
+ * Question class is used through out the Quiz game in order to store information
+ * pulled from API. It requires the ICorrectIndex interface in order to use the
+ * getCorrectIndex function.
+ *
+ * @package classes
+ * @author Tyler Bezera <tbezera2@mail.greenriver.edu>
+ * @author Brett Yeager <byeager@mail.greenriver.edu>
+ */
 class Question
 {
     private $_question;
@@ -9,12 +27,12 @@ class Question
     private $_correctIndex;
 
     /**
-     * Question constructor.
-     * @param String $question The question
+     * Question constructor. Builds the question object.
+     *
+     * @param string $question The question
      * @param Array<String> $possibleAnswers Possible answers
-     * @param String $category The category
-     * @param integer $correctIndex The correct answer index within the
-     * possible answers array
+     * @param string $category The category
+     * @param int $correctIndex The correct answer index within the
      *
      */
     function __construct($question, $possibleAnswers, $category, $correctIndex)
@@ -27,7 +45,7 @@ class Question
 
     /**
      * Getter for question
-     * @return String Main question
+     * @return string Main question
      */
     public function getQuestion()
     {
@@ -45,8 +63,8 @@ class Question
     }
 
     /**
-     * Getter for the catergory id
-     * @return String catergory this question belongs to
+     * Getter for the category id
+     * @return string category this question belongs to
      */
     public function getCategory()
     {
@@ -64,7 +82,7 @@ class Question
 
     /**
      * Getter for the correct answer, used to compare against user answer
-     * @return String Correct answer from array
+     * @return string Correct answer from array
      */
     public function getCorrectAnswer()
     {

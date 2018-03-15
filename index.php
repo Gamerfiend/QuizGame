@@ -1,9 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Snow Tyler Bezera
- * Date: 1/18/2018
- * Time: 1:29 PM
+ * Index for the QuizGame, responsible for routing and storing information using the fat free framework.
+ *
+ * @package QuizGame
+ * @author Tyler Bezera <tbezera2@mail.greenriver.edu>
+ * @author Brett Yeager <byeager@mail.greenriver.edu>
  */
 
 //Turn on error reporting
@@ -25,7 +26,7 @@ $f3->route('GET /', function($f3) {
     $highscores = getHighscores();
 
     $f3->set("highscores", $highscores);
-    print_r($highscores);
+
     echo Template::instance()->render('views/home.html');
 });
 
