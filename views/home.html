@@ -12,19 +12,28 @@ Package: views
     <link rel="stylesheet" href="./styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="./styles/bootstrap/bootstrap-grid.css">
     <link rel="stylesheet" href="./styles/bootstrap/bootstrap-reboot.css">
-
+    <link rel="stylesheet" href="./styles/home.css">
 </head>
 <body>
+<div class="jumbotron">
+    <h1 class="display-4">Quiz Game</h1>
+    <p class="lead">You have one chance to play the game, the first question you get wrong, the game ends and submits your highscore.</p>
+    <hr class="my-4">
+    <p>Maybe nickname enter here</p>
+    <p class="lead">
+        <a href="./play" class="btn btn-primary btn-lg mt-5">Play</a>
+    </p>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div id="Wrapper" class="text-center">
             <h1 class="text-info text-center mt-5">Quiz Game</h1>
-            <a href="./play" class="btn btn-primary btn-lg mt-5">Play</a>
+
         </div>
     </div><!-- END ROW DIV -->
     <div class="row mt-5 justify-content-center">
         <div id="highscores" class="">
-            <table class="table-striped">
+            <table class="table-striped text-center">
                 <tr>
                     <th>Nickname:</th>
                     <th>Highscore:</th>

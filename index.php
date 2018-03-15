@@ -34,7 +34,7 @@ $f3->route('GET /play', function($f3) {
 
     echo Template::instance()->render('views/play.html');
 });
-$f3->route('POST /play', function() {
+$f3->route('POST /play', function($f3) {
     //check if post has been submitted
     echo print_r($_POST);
     $correct = false;
@@ -60,6 +60,7 @@ $f3->route('POST /play', function() {
     //if correct increment correctAnswered and reload page with new question
     if($correct){
         $_SESSION["highscore"] += 1;
+        $f3->set('score', $_SESSION["highscore"]);
         echo Template::instance()->render('views/play.html');
     }else{
 
@@ -68,11 +69,6 @@ $f3->route('POST /play', function() {
         $_SESSION["highscore"] = 0;
         echo Template::instance()->render('views/home.html');
     }
-
-    echo "score: " . $_SESSION["highscore"];
-
-    //else results page, which will submit to database
-
 });
 
 //run fat free
