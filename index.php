@@ -45,7 +45,7 @@ $f3->route('POST /play', function($f3) {
             $givenAnswer = $i;
 
             //check submitted answer, against correct answer in session
-            if($_SESSION["correctAnswer"]->getCorrectIndex()==$givenAnswer){
+            if($_SESSION["question"]->getCorrectIndex()==$givenAnswer){
                 //Correct
                 $correct = true;
             }else{
