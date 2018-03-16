@@ -39,9 +39,15 @@ $f3->route('GET /', function($f3) {
 });
 
 
-$f3->route('GET /play', function() {
-    $_SESSION['nickname'] = $_GET['nickname'];
-    echo Template::instance()->render('views/play.html');
+$f3->route('GET /play', function($f3) {
+
+    //Validate nickname on server side
+    if($_GET['nickname']!=null){
+        $_SESSION['nickname'] = $_GET['nickname'];
+        echo Template::instance()->render('views/play.html');
+    }else{
+        $f3->reroute("/");
+    }
 });
 $f3->route('POST /play', function($f3) {
     //check if post has been submitted
