@@ -18,11 +18,11 @@ PRIMARY KEY(entryid)
  * @author Brett Yeager <byeager@mail.greenriver.edu>
  */
 require "../../../quizgameconfig.php";
-$dbh;
+$_models_dbh;
 
 try{
     //Instantiate a database object
-    $dbh = new PDO(DB_DSN,
+    $_models_dbh = new PDO(DB_DSN,
         DB_USERNAME, DB_PASSWORD);
 }
 catch(PDOException $e){
@@ -40,8 +40,8 @@ function submitHighscore($name, $score){
         $sql = "INSERT INTO Highscores(name, score)
         VALUES  (:name, :score)";
 
-        global $dbh;
-        $statement = $dbh->prepare($sql);
+        global $_models_dbh;
+        $statement = $_models_dbh->prepare($sql);
 
         $statement->bindParam(':name', $name, PDO::PARAM_STR);
         $statement->bindParam(':score', $score, PDO::PARAM_STR);
@@ -54,9 +54,9 @@ function getHighscores()
 {
     $sql = "SELECT * FROM Highscores ORDER BY score DESC LIMIT 20";
 
-    global $dbh;
+    global $_models_dbh;
 
-    $statement = $dbh->prepare($sql);
+    $statement = $_models_dbh->prepare($sql);
 
     $result = $statement->execute();
 
