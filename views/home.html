@@ -39,7 +39,7 @@ Package: views
             <table class="table-striped text-center">
                     <repeat group="{{ @highscores }}" value="{{ @score }}">
                         <tr>
-                            <td class="p-2 pl-5">{{ @score['name'] }} </td>
+                            <td class="p-2 pl-5 text-capitalize">{{ @score['name'] }} </td>
                             <td class="p-2 pr-5">{{ @score['score']}}</td>
                         </tr>
                     </repeat>
