@@ -16,7 +16,7 @@ Package: views
 </head>
 <body>
 <check if="{{ @answer!=null }}">
-    <script>setTimeout(function(){alert("Game over. The answer was  {{ @answer }}")}, 600);</script>
+    <script>setTimeout(function(){alert("Game over. The answer was {{ @answer }}")}, 600);</script>
 </check>
 <div class="jumbotron">
     <h1 class="display-4">Quiz Game</h1>
@@ -25,7 +25,7 @@ Package: views
     <form action="./play" method="GET">
         <div class="form-group col-3">
             <label for="nickname">Nickname: &nbsp;</label>
-            <input id="nickname" name="nickname" type="text" class="form-control" required value="{{ @nickname }}">
+            <input id="nickname" name="nickname" type="text" class="form-control" value="{{ @nickname }}">
         </div>
         <p class="lead">
             <input value="Play" type="submit" class="btn btn-primary btn-lg mt-5">
@@ -33,17 +33,14 @@ Package: views
     </form>
 </div>
 <div class="container mb-5">
-    <div class="row mt-5 justify-content-center">
+    <h3 class="text-center"><small>Highscores</small></h3>
+    <div class="row mt-3 justify-content-center">
         <div id="highscores" class="">
             <table class="table-striped text-center">
-                <tr>
-                    <th>Nickname:</th>
-                    <th>Highscore:</th>
-                </tr>
                     <repeat group="{{ @highscores }}" value="{{ @score }}">
                         <tr>
-                            <td>{{ @score['name'] }}</td>
-                            <td>{{ @score['score']}}</td>
+                            <td class="p-2 pl-5">{{ @score['name'] }} </td>
+                            <td class="p-2 pr-5">{{ @score['score']}}</td>
                         </tr>
                     </repeat>
             </table>
