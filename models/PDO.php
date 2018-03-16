@@ -36,17 +36,18 @@ catch(PDOException $e){
  */
 function submitHighscore($name, $score){
 
-
-    $sql = "INSERT INTO Highscores(name, score)
+    if($score>0) {
+        $sql = "INSERT INTO Highscores(name, score)
         VALUES  (:name, :score)";
 
-    global $dbh;
-    $statement = $dbh->prepare($sql);
+        global $dbh;
+        $statement = $dbh->prepare($sql);
 
-    $statement->bindParam(':name', $name, PDO::PARAM_STR);
-    $statement->bindParam(':score', $score, PDO::PARAM_STR);
+        $statement->bindParam(':name', $name, PDO::PARAM_STR);
+        $statement->bindParam(':score', $score, PDO::PARAM_STR);
 
-    $statement->execute();
+        $statement->execute();
+    }
 }
 
 function getHighscores()
