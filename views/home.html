@@ -25,7 +25,7 @@ Package: views
     <form action="./play" method="GET">
         <div class="form-group col-3">
             <label for="nickname">Nickname: &nbsp;</label>
-            <input id="nickname" name="nickname" type="text" class="form-control" value="{{ @nickname }}">
+            <input id="nickname" name="nickname" type="text" class="form-control" required value="{{ @nickname }}">
         </div>
         <p class="lead">
             <input value="Play" type="submit" class="btn btn-primary btn-lg mt-5">
